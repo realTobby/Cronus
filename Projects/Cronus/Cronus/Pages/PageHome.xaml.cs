@@ -20,9 +20,20 @@ namespace Cronus.Pages
     /// </summary>
     public partial class PageHome : Page
     {
+
         public PageHome()
         {
             InitializeComponent();
+
+        }
+
+        private void TextBlock_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

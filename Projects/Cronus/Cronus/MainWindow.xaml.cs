@@ -1,4 +1,6 @@
-﻿using MahApps.Metro.Controls;
+﻿using Cronus.Logic;
+using Cronus.Pages;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +23,27 @@ namespace Cronus
     /// </summary>
     public partial class MainWindow
     {
+        private ViewModels.ViewModel myViewModel;
+
+        private NavigationHandler myNavigation;
+
+
         public MainWindow()
         {
             InitializeComponent();
+            myViewModel = new ViewModels.ViewModel();
+            this.DataContext = myViewModel;
+
+            myNavigation = new NavigationHandler(myViewModel);
+
+            myViewModel.VersionTitle = "this is a test";
+
+            mainFrame.Navigate(myNavigation.GetPageAtIndex(0));
         }
 
         private void menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            mainFrame.Navigate(myNavigation.GetPageAtIndex(menu.SelectedIndex));
         }
     }
 }

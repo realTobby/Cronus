@@ -7,25 +7,18 @@
         mc:Ignorable="d"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Cronus by github.com/realTobby/Cronus (ZPL Editor)" Height="450" Width="800">
-    <Grid x:Name="grid_main">
 
-        <mah:MetroTabControl x:Name="menu" SelectionChanged="menu_SelectionChanged" Style="{DynamicResource MahApps.Styles.TabControl.Animated}">
-            <mah:MetroTabItem x:Name="menu_home" Header="Home">
-                <Frame Source="/Pages/PageHome.xaml"/>
-            </mah:MetroTabItem>
-            <mah:MetroTabItem Header="New">
-                <Frame Source="/Pages/PageNew.xaml"/>
-            </mah:MetroTabItem>
-            <mah:MetroTabItem Header="Load">
-                <Frame Source="/Pages/PageLoad.xaml"/>
-            </mah:MetroTabItem>
-            <mah:MetroTabItem Header="Edit">
-                <Frame Source="/Pages/PageEdit.xaml"/>
-            </mah:MetroTabItem>
-            <mah:MetroTabItem Header="Print">
-                <Frame Source="/Pages/PagePrint.xaml"/>
-            </mah:MetroTabItem>
-        </mah:MetroTabControl>
+    <Grid x:Name="grid_main">
+        <DockPanel LastChildFill="True">
+            <mah:MetroTabControl x:Name="menu" SelectionChanged="menu_SelectionChanged" Style="{DynamicResource MahApps.Styles.TabControl.Animated}" TabStripPlacement="Left">
+                <mah:MetroTabItem x:Name="menu_home" Header="Home" />
+                <mah:MetroTabItem x:Name="menu_new" Header="New"/>
+                <mah:MetroTabItem Header="Load"/>
+                <mah:MetroTabItem Header="Edit"/>
+                <mah:MetroTabItem Header="Print"/>
+            </mah:MetroTabControl>
+            <Frame x:Name="mainFrame" Source="/Pages/PageHome.xaml" NavigationUIVisibility="Hidden"/>
+        </DockPanel>
         
     </Grid>
 </mah:MetroWindow>

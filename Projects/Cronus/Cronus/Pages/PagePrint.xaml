@@ -9,6 +9,10 @@
       Title="PagePrint">
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="Print Page" Foreground="Black" FontSize="20" FontWeight="Bold"/>
+        <StackPanel>
+            <TextBlock Text="Print Page" Foreground="Black" FontSize="20" FontWeight="Bold"/>
+            <TextBox/>
+        </StackPanel>
+        
     </Grid>
 </Page>
