@@ -33,17 +33,19 @@ namespace Cronus
             InitializeComponent();
             myViewModel = new ViewModels.ViewModel();
             this.DataContext = myViewModel;
-
             myNavigation = new NavigationHandler(myViewModel);
+            ChangePage(0);
+        }
 
-            myViewModel.VersionTitle = "this is a test";
-
-            mainFrame.Navigate(myNavigation.GetPageAtIndex(0));
+        private void ChangePage(int index)
+        {
+            myViewModel.CurrentView = myNavigation.GetPageAtIndex(index);
+            mainFrame.Navigate(myViewModel.CurrentView);
         }
 
         private void menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            mainFrame.Navigate(myNavigation.GetPageAtIndex(menu.SelectedIndex));
+            ChangePage(menu.SelectedIndex);
         }
     }
 }

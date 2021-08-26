@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Cronus.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PagePrint">
+      Title="PagePrint" Background="#F3F1F5">
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel>

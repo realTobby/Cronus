@@ -31,9 +31,6 @@ namespace Cronus.Logic
             _pageList.Add(2, load);
             _pageList.Add(3, edit);
             _pageList.Add(4, print);
-
-
-
         }
 
         public Page GetPageAtIndex(int index)

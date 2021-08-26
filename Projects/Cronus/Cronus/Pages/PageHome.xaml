@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Cronus.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageHome" Background="Gray" Loaded="Page_Loaded">
+      Title="PageHome" Background="#F3F1F5" Loaded="Page_Loaded">
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Text="{Binding VersionTitle}" Foreground="Black" FontSize="20" FontWeight="Bold" Loaded="TextBlock_Loaded"/>

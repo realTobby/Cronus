@@ -11,6 +11,8 @@ namespace Cronus.ViewModels
     {
         #region Private Fields
         private string _versionTitle = string.Empty;
+
+        private Page _currentView;
         #endregion
 
         #region Public Properties
@@ -24,6 +26,19 @@ namespace Cronus.ViewModels
             {
                 _versionTitle = value;
                 base.OnPropertyChanged(nameof(VersionTitle));
+            }
+        }
+
+        public Page CurrentView
+        {
+            get
+            {
+                return _currentView;
+            }
+            set
+            {
+                _currentView = value;
+                base.OnPropertyChanged(nameof(CurrentView));
             }
         }
 
