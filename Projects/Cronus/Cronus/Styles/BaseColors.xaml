@@ -3,4 +3,5 @@
     <SolidColorBrush x:Key="stylecolor_background" Color="#F3F1F5"/>
     <SolidColorBrush x:Key="stylecolor_mainaccent" Color="#BFA2DB"/>
     <SolidColorBrush x:Key="stylecolor_foreground" Color="#7F7C82"/>
+    <SolidColorBrush x:Key="stylecolor_mainaccent_light" Color="#F0D9FF"/>
 </ResourceDictionary>

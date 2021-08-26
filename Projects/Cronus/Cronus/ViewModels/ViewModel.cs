@@ -13,6 +13,11 @@ namespace Cronus.ViewModels
         private string _versionTitle = string.Empty;
 
         private Page _currentView;
+
+        private string _newProjectName = string.Empty;
+        private string _newProjectAuthor = string.Empty;
+        private string _newProjectDescription = string.Empty;
+
         #endregion
 
         #region Public Properties
@@ -39,6 +44,45 @@ namespace Cronus.ViewModels
             {
                 _currentView = value;
                 base.OnPropertyChanged(nameof(CurrentView));
+            }
+        }
+
+        public string NewProjectName
+        {
+            get
+            {
+                return _newProjectName;
+            }
+            set
+            {
+                _newProjectName = value;
+                base.OnPropertyChanged(nameof(NewProjectName));
+            }
+        }
+
+        public string NewProjectAuthor
+        {
+            get
+            {
+                return _newProjectAuthor;
+            }
+            set
+            {
+                _newProjectAuthor = value;
+                base.OnPropertyChanged(nameof(NewProjectAuthor));
+            }
+        }
+
+        public string NewProjectDescription
+        {
+            get
+            {
+                return _newProjectDescription;
+            }
+            set
+            {
+                _newProjectDescription = value;
+                base.OnPropertyChanged(nameof(NewProjectDescription));
             }
         }
 

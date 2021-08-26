@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:Cronus"
         mc:Ignorable="d"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Cronus by github.com/realTobby/Cronus (ZPL Editor)" Height="450" Width="800" WindowTitleBrush="{StaticResource stylecolor_mainaccent}">
+        Title="Cronus by github.com/realTobby/Cronus (ZPL Editor)" Height="450" Width="800" WindowTitleBrush="{StaticResource stylecolor_foreground}">
 
-    <Grid x:Name="grid_main" Background="{StaticResource stylecolor_mainaccent}">
+    <Grid x:Name="grid_main" Background="{StaticResource stylecolor_mainaccent_light}">
         <DockPanel LastChildFill="True">
-            <mah:MetroTabControl x:Name="menu" Background="{StaticResource stylecolor_mainaccent}"  SelectionChanged="menu_SelectionChanged" Style="{DynamicResource MahApps.Styles.TabControl.Animated}" TabStripPlacement="Left">
+            <mah:MetroTabControl x:Name="menu" Background="{StaticResource stylecolor_mainaccent_light}"  SelectionChanged="menu_SelectionChanged" Style="{DynamicResource MahApps.Styles.TabControl.Animated}" TabStripPlacement="Left">
 
                 <mah:MetroTabItem x:Name="menu_home" Header="Home" />
                 <mah:MetroTabItem x:Name="menu_new" Header="New"/>

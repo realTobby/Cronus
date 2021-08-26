@@ -20,9 +20,15 @@ namespace Cronus.Pages
     /// </summary>
     public partial class PageNew : Page
     {
+
         public PageNew()
         {
             InitializeComponent();
+        }
+
+        private void btn_create_new_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

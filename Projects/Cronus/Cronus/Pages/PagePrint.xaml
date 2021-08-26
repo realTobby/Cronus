@@ -11,7 +11,6 @@
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel>
             <TextBlock Text="Print Page" Foreground="Black" FontSize="20" FontWeight="Bold"/>
-            <TextBox/>
         </StackPanel>
         
     </Grid>
