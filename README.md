@@ -1,5 +1,5 @@
-# Cronus
-Cronus - A ZPL Editor
+# Cronus 🦓
+🦓 Cronus - A ZPL Editor 🦓
 
 ## What is ZPL?
 ZPL (Zebra Programming Language) is a markup-language that defines print layouts.
