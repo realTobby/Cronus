@@ -1,4 +1,5 @@
 ﻿using Cronus.Pages;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,32 +9,41 @@ using System.Windows.Controls;
 
 namespace Cronus.Logic
 {
-    public class NavigationHandler
+    public static class NavigationHandler
     {
-        private Dictionary<int, Page> _pageList = new Dictionary<int, Page>();
+        private static ViewModels.ViewModel viewModelRef;
+        private static Dictionary<int, Page> _pageList = new Dictionary<int, Page>();
+        private static Frame mainFrame;
 
-        public NavigationHandler(ViewModels.ViewModel vm)
+        public static void InitNavigation(ViewModels.ViewModel vm, Frame frm)
         {
-            Page home = new PageHome();
-            Page newPage = new PageNew();
-            Page load = new PageLoad();
-            Page edit = new PageEdit();
-            Page print = new PagePrint();
+            viewModelRef = vm;
 
-            home.DataContext = vm;
-            newPage.DataContext = vm;
-            load.DataContext = vm;
-            edit.DataContext = vm;
-            print.DataContext = vm;
+
+            Page home = new PageHome();
+            Page newPage = new PageNew(vm);
+            Page load = new PageLoad(vm);
+            Page edit = new PageEdit(vm);
+            Page print = new PagePrint(vm);
 
             _pageList.Add(0, home);
             _pageList.Add(1, newPage);
             _pageList.Add(2, load);
             _pageList.Add(3, edit);
             _pageList.Add(4, print);
+
+            mainFrame = frm;
+
+
         }
 
-        public Page GetPageAtIndex(int index)
+        public static void ChangePage(int index)
+        {
+            viewModelRef.CurrentView = GetPageAtIndex(index);
+            mainFrame.Navigate(viewModelRef.CurrentView);
+        }
+
+        public static Page GetPageAtIndex(int index)
         {
             return _pageList[index];
         }

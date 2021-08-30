@@ -25,27 +25,22 @@ namespace Cronus
     {
         private ViewModels.ViewModel myViewModel;
 
-        private NavigationHandler myNavigation;
-
-
         public MainWindow()
         {
-            InitializeComponent();
             myViewModel = new ViewModels.ViewModel();
+
+            InitializeComponent();
+            
+            Logic.NavigationHandler.InitNavigation(myViewModel, mainFrame);
             this.DataContext = myViewModel;
-            myNavigation = new NavigationHandler(myViewModel);
-            ChangePage(0);
+            Logic.NavigationHandler.ChangePage(0);
         }
 
-        private void ChangePage(int index)
-        {
-            myViewModel.CurrentView = myNavigation.GetPageAtIndex(index);
-            mainFrame.Navigate(myViewModel.CurrentView);
-        }
+        
 
         private void menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ChangePage(menu.SelectedIndex);
+            Logic.NavigationHandler.ChangePage(myViewModel.SelectedMenuIndex);
         }
     }
 }

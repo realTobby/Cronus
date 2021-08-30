@@ -20,9 +20,12 @@ namespace Cronus.Pages
     /// </summary>
     public partial class PagePrint : Page
     {
-        public PagePrint()
+        ViewModels.ViewModel viewModelRef;
+        public PagePrint(ViewModels.ViewModel vm)
         {
             InitializeComponent();
+            viewModelRef = vm;
+            this.DataContext = viewModelRef;
         }
     }
 }

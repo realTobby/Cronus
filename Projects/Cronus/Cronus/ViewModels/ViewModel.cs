@@ -13,10 +13,14 @@ namespace Cronus.ViewModels
         private string _versionTitle = string.Empty;
 
         private Page _currentView;
+        private int _selectedMenuIndex = 0;
+
 
         private string _newProjectName = string.Empty;
         private string _newProjectAuthor = string.Empty;
         private string _newProjectDescription = string.Empty;
+
+       
 
         #endregion
 
@@ -44,6 +48,19 @@ namespace Cronus.ViewModels
             {
                 _currentView = value;
                 base.OnPropertyChanged(nameof(CurrentView));
+            }
+        }
+
+        public int SelectedMenuIndex
+        {
+            get
+            {
+                return _selectedMenuIndex;
+            }
+            set
+            {
+                _selectedMenuIndex = value;
+                base.OnPropertyChanged(nameof(SelectedMenuIndex));
             }
         }
 

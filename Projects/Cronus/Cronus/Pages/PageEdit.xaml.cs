@@ -20,9 +20,13 @@ namespace Cronus.Pages
     /// </summary>
     public partial class PageEdit : Page
     {
-        public PageEdit()
+        ViewModels.ViewModel viewModelRef;
+
+        public PageEdit(ViewModels.ViewModel vm) 
         {
             InitializeComponent();
+            viewModelRef = vm;
+            this.DataContext = viewModelRef;
         }
     }
 }

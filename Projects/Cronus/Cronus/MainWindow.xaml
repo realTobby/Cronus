@@ -10,7 +10,7 @@
 
     <Grid x:Name="grid_main" Background="{StaticResource stylecolor_mainaccent_light}">
         <DockPanel LastChildFill="True">
-            <mah:MetroTabControl x:Name="menu" Background="{StaticResource stylecolor_mainaccent_light}"  SelectionChanged="menu_SelectionChanged" Style="{DynamicResource MahApps.Styles.TabControl.Animated}" TabStripPlacement="Left">
+            <mah:MetroTabControl x:Name="menu" Background="{StaticResource stylecolor_mainaccent_light}" SelectedIndex="{Binding SelectedMenuIndex}" SelectionChanged="menu_SelectionChanged" Style="{DynamicResource MahApps.Styles.TabControl.Animated}" TabStripPlacement="Left">
 
                 <mah:MetroTabItem x:Name="menu_home" Header="Home" />
                 <mah:MetroTabItem x:Name="menu_new" Header="New"/>
@@ -18,7 +18,7 @@
                 <mah:MetroTabItem Header="Edit"/>
                 <mah:MetroTabItem Header="Print"/>
             </mah:MetroTabControl>
-            <Frame x:Name="mainFrame" Source="{Binding CurrentView}" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="mainFrame" Content="{Binding CurrentView}" NavigationUIVisibility="Hidden"/>
         </DockPanel>
         
     </Grid>

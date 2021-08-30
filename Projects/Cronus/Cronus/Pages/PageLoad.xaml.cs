@@ -20,9 +20,12 @@ namespace Cronus.Pages
     /// </summary>
     public partial class PageLoad : Page
     {
-        public PageLoad()
+        private ViewModels.ViewModel viewModelRef;
+        public PageLoad(ViewModels.ViewModel vm)
         {
             InitializeComponent();
+            viewModelRef = vm;
+            this.DataContext = viewModelRef;
         }
     }
 }
