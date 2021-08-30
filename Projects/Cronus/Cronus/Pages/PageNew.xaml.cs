@@ -1,4 +1,6 @@
-﻿using MahApps.Metro.Controls;
+﻿using Cronus.Logic;
+using Cronus.Models;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +34,27 @@ namespace Cronus.Pages
 
         private void btn_create_new_Click(object sender, RoutedEventArgs e)
         {
+            ProjectModel pm = new ProjectModel();
+            pm.Name = vm.NewProjectName;
+            pm.Author = vm.NewProjectAuthor;
+            pm.Description = vm.NewProjectDescription;
+            pm.CreateDate = DateTime.Now;
+            pm.ChangeDate = DateTime.Now;
+
+            string fullPath = System.IO.Path.Combine(@"D:\Kattanek\Privat\CronusWorkspace", pm.Name);
+
+            FileManager.CreateNewProject(@"D:\Kattanek\Privat\CronusWorkspace", pm);
+            vm.LoadedProject = FileManager.LoadProject(fullPath);
+            CleanPage();
+
             vm.SelectedMenuIndex = 3;
+        }
+
+        private void CleanPage()
+        {
+            txtBox_projectName.Text = string.Empty;
+            txtBox_projectAuthor.Text = string.Empty;
+            txtBox_projectDescription.Text = string.Empty;
         }
     }
 }

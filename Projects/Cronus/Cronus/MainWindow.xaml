@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Cronus"
         mc:Ignorable="d"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Cronus by github.com/realTobby/Cronus (ZPL Editor)" Height="450" Width="800" WindowTitleBrush="{StaticResource stylecolor_foreground}">
+        Title="Cronus by github.com/realTobby/Cronus (ZPL Editor)" FontFamily="Calibri" Height="450" Width="800" WindowTitleBrush="{StaticResource stylecolor_foreground}">
 
     <Grid x:Name="grid_main" Background="{StaticResource stylecolor_mainaccent_light}">
         <DockPanel LastChildFill="True">

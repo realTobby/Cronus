@@ -14,17 +14,17 @@
 
             <DockPanel LastChildFill="True" x:Name="dock_projectName">
                 <TextBlock VerticalAlignment="Center" Text="Project Name:" HorizontalAlignment="Left"/>
-                <TextBox Text="{Binding NewProjectName}" Margin="5,5,5,5" Width="100" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtBox_projectName" Text="{Binding NewProjectName}" Margin="5,5,5,5" Width="100" HorizontalAlignment="Right"/>
             </DockPanel>
 
             <DockPanel LastChildFill="True" x:Name="dock_author">
                 <TextBlock VerticalAlignment="Center" Text="Author:" HorizontalAlignment="Left"/>
-                <TextBox Text="{Binding NewProjectAuthor}" Margin="5,5,5,5" Width="100" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtBox_projectAuthor" Text="{Binding NewProjectAuthor}" Margin="5,5,5,5" Width="100" HorizontalAlignment="Right"/>
             </DockPanel>
 
             <DockPanel LastChildFill="True" x:Name="dock_description">
                 <TextBlock VerticalAlignment="Center" Text="Description:" HorizontalAlignment="Left"/>
-                <TextBox Text="{Binding NewProjectDescription}" Margin="5,5,5,5" Width="100" HorizontalAlignment="Right"/>
+                <TextBox x:Name="txtBox_projectDescription" Text="{Binding NewProjectDescription}" Margin="5,5,5,5" Width="100" HorizontalAlignment="Right"/>
             </DockPanel>
 
             <Button x:Name="btn_create_new" Content="Create new" Margin="15,15,15,15" Click="btn_create_new_Click"/>

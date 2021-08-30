@@ -9,14 +9,34 @@
       Title="PageHome" Background="#F3F1F5" Loaded="Page_Loaded">
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <StackPanel >
-            <TextBlock Text="Welcome to Cronus!" Margin="30,30,30,30" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
-            
+        <StackPanel x:Name="welcomeStack" Visibility="Visible">
+            <TextBlock Text="🦓Welcome to Cronus!🦓" Margin="30,30,30,30" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+
             <TextBlock Text="ZPL Editor" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
             <TextBlock Text="made by realTobby" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
             <TextBlock Text="Start by creating a new Template!" Margin="30,30,30,30" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
 
+            <TextBlock Text="Cronus Workspace:" Margin="30,30,30,0" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding WorkspacePath}" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+
+
         </StackPanel>
-        
+        <StackPanel x:Name="initStack" Visibility="Hidden">
+            <TextBlock Text="🦓Welcome to Cronus!🦓" Margin="30,30,30,30" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+
+            <TextBlock Text="ZPL Editor" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+            <TextBlock Text="made by realTobby" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+            
+            <TextBlock Text="Looks like this is the first time you started Cronus." Margin="30,30,30,0" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+            <TextBlock Text="Lets get started by setting up a workspace!" Margin="0,0,0,30" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+            <TextBlock Text="Select a directory" Margin="0,0,0,0" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+
+            <DockPanel HorizontalAlignment="Center">
+                <TextBox Text="{Binding WorkspacePath}" Width="400" HorizontalAlignment="Left" Margin="5,5,5,5"/>
+                <Button x:Name="btn_setWorkspace" Click="btn_setWorkspace_Click" Content="..." Width="25" HorizontalAlignment="Center" Margin="5,5,5,5"/>
+            </DockPanel>
+
+        </StackPanel>
+
     </Grid>
 </Page>

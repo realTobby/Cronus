@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cronus.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,14 @@ namespace Cronus.ViewModels
         private Page _currentView;
         private int _selectedMenuIndex = 0;
 
+        private bool _isFirstStart = false;
 
         private string _newProjectName = string.Empty;
         private string _newProjectAuthor = string.Empty;
         private string _newProjectDescription = string.Empty;
 
+        private string _workspacePath;
+        private ProjectModel _loadedProject;
        
 
         #endregion
@@ -64,6 +68,19 @@ namespace Cronus.ViewModels
             }
         }
 
+        public bool IsFirstStart
+        {
+            get
+            {
+                return _isFirstStart;
+            }
+            set
+            {
+                _isFirstStart = value;
+                base.OnPropertyChanged(nameof(IsFirstStart));
+            }
+        }
+
         public string NewProjectName
         {
             get
@@ -100,6 +117,32 @@ namespace Cronus.ViewModels
             {
                 _newProjectDescription = value;
                 base.OnPropertyChanged(nameof(NewProjectDescription));
+            }
+        }
+
+        public string WorkspacePath
+        {
+            get
+            {
+                return _workspacePath;
+            }
+            set
+            {
+                _workspacePath = value;
+                base.OnPropertyChanged(nameof(WorkspacePath));
+            }
+        }
+
+        public ProjectModel LoadedProject
+        {
+            get
+            {
+                return _loadedProject;
+            }
+            set
+            {
+                _loadedProject = value;
+                base.OnPropertyChanged(nameof(LoadedProject));
             }
         }
 

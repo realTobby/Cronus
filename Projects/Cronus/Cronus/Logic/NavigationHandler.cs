@@ -20,7 +20,7 @@ namespace Cronus.Logic
             viewModelRef = vm;
 
 
-            Page home = new PageHome();
+            Page home = new PageHome(vm);
             Page newPage = new PageNew(vm);
             Page load = new PageLoad(vm);
             Page edit = new PageEdit(vm);
