@@ -41,9 +41,11 @@ namespace Cronus.Pages
             pm.CreateDate = DateTime.Now;
             pm.ChangeDate = DateTime.Now;
 
-            string fullPath = System.IO.Path.Combine(@"D:\Kattanek\Privat\CronusWorkspace", pm.Name);
 
-            FileManager.CreateNewProject(@"D:\Kattanek\Privat\CronusWorkspace", pm);
+
+            string fullPath = System.IO.Path.Combine(FileManager.GetWorkspacePath(), pm.Name);
+
+            FileManager.CreateNewProject(pm);
             vm.LoadedProject = FileManager.LoadProject(fullPath);
             CleanPage();
 

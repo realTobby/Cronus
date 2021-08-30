@@ -28,27 +28,9 @@ namespace Cronus.Pages
             InitializeComponent();
             viewModelRef = vm;
             this.DataContext = viewModelRef;
-
-            SearchForProjects();
+            viewModelRef.AvailableProjects =  FileManager.SearchForProjects(viewModelRef.WorkspacePath);
         }
 
-        private void SearchForProjects()
-        {
-            if(viewModelRef.WorkspacePath != null && viewModelRef.WorkspacePath != string.Empty)
-            {
-                string[] projectsInsideWorkspace = System.IO.Directory.GetDirectories(viewModelRef.WorkspacePath);
-
-                foreach (string name in projectsInsideWorkspace)
-                {
-                    ProjectModel nextProject = FileManager.LoadProject(name);
-
-                    viewModelRef.AvailableProjects.Add(nextProject);
-
-                }
-            }
-            
-
-
-        }
+        
     }
 }

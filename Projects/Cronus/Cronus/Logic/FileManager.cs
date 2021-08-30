@@ -1,4 +1,5 @@
 ﻿using Cronus.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,15 @@ namespace Cronus.Logic
 {
     public static class FileManager
     {
+        private static RegistryKey cronusRegistryEntry;
+
+        private const string REGISTRY_CRONUS_KEY = @"SOFTWARE\Cronus";
+
         private const string _projectIniName = "project.ini";
 
-        public static void CreateNewProject(string workspacePath, ProjectModel pm)
+        public static void CreateNewProject(ProjectModel pm)
         {
-            string fullPath = System.IO.Path.Combine(workspacePath, pm.Name);
+            string fullPath = System.IO.Path.Combine(GetWorkspacePath(), pm.Name);
 
             // create base project folder
             System.IO.Directory.CreateDirectory(fullPath);
@@ -54,6 +59,35 @@ namespace Cronus.Logic
             return pm;
         }
 
+        public static string GetWorkspacePath()
+        {
+            cronusRegistryEntry = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_CRONUS_KEY);
+            string workspacePath = cronusRegistryEntry.GetValue("WorkspacePath").ToString();
+            cronusRegistryEntry.Close();
+            return workspacePath;
+        }
+
+        public static List<ProjectModel> SearchForProjects(string fullPath)
+        {
+            List<ProjectModel> projects = new List<ProjectModel>();
+            string[] projectsInsideWorkspace = System.IO.Directory.GetDirectories(fullPath);
+
+            foreach (string name in projectsInsideWorkspace)
+            {
+                ProjectModel nextProject = FileManager.LoadProject(name);
+
+                projects.Add(nextProject);
+
+            }
+            return projects;
+        }
+
+        public static void SetWorkspacePath(string path)
+        {
+            cronusRegistryEntry = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_CRONUS_KEY);
+            cronusRegistryEntry.SetValue("WorkspacePath", path);
+            cronusRegistryEntry.Close();
+        }
 
     }
 }

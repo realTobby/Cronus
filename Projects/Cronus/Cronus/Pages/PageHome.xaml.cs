@@ -1,6 +1,8 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
+﻿using Cronus.Logic;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +23,7 @@ namespace Cronus.Pages
     /// </summary>
     public partial class PageHome : Page
     {
-        private const string REGISTRY_CRONUS_KEY = @"SOFTWARE\Cronus";
-
         ViewModels.ViewModel vm;
-        Microsoft.Win32.RegistryKey cronusRegistryEntry;
 
         public PageHome(ViewModels.ViewModel viewModel)
         {
@@ -68,9 +67,8 @@ namespace Cronus.Pages
         private void CheckForWorkspace()
         {
             vm.IsFirstStart = true;
-            cronusRegistryEntry = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_CRONUS_KEY);
-            var registeredWorkspace = cronusRegistryEntry.GetValue("WorkspacePath");
-            if(registeredWorkspace != null)
+            string registeredWorkspace = FileManager.GetWorkspacePath();
+            if(registeredWorkspace != string.Empty)
             { 
                 if(System.IO.Directory.Exists(registeredWorkspace.ToString()))
                 {
@@ -78,13 +76,15 @@ namespace Cronus.Pages
                     vm.WorkspacePath = registeredWorkspace.ToString();
                 }
             }
-            cronusRegistryEntry.Close();
         }
 
         private void btn_setWorkspace_Click(object sender, RoutedEventArgs e)
         {
-            cronusRegistryEntry = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_CRONUS_KEY);
-            
+            SetWorkspaceDirectory();
+        }
+
+        private void SetWorkspaceDirectory()
+        {
             var dlg = new CommonOpenFileDialog();
             dlg.Title = "Select a workspace directory";
             dlg.IsFolderPicker = true;
@@ -103,10 +103,26 @@ namespace Cronus.Pages
             if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 vm.WorkspacePath = dlg.FileName;
-                cronusRegistryEntry.SetValue("WorkspacePath", vm.WorkspacePath);
+                FileManager.SetWorkspacePath(vm.WorkspacePath);
                 UpdateHomeView();
             }
-            cronusRegistryEntry.Close();
+        }
+
+        private void text_workspace_link_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(vm.WorkspacePath);
+            e.Handled = true;
+        }
+
+        private void hyperlink_github_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/realTobby");
+            e.Handled = true;
+        }
+
+        private void btn_changeWorkspace_Click(object sender, RoutedEventArgs e)
+        {
+            SetWorkspaceDirectory();
         }
     }
 }

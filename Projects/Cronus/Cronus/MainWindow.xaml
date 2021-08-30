@@ -30,7 +30,7 @@
                         </DockPanel>
                     </mah:MetroTabItem.Header>
                 </mah:MetroTabItem>
-                <mah:MetroTabItem >
+                <mah:MetroTabItem>
                     <mah:MetroTabItem.Header>
                         <DockPanel LastChildFill="True">
                             <mah1:PackIconMaterial Kind="DotsHorizontalCircle" HorizontalAlignment="Right" VerticalAlignment="Center"/>

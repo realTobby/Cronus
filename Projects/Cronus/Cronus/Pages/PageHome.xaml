@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Cronus.Pages"
+      xmlns:local="clr-namespace:Cronus.Pages" xmlns:mah1="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageHome" Background="#F3F1F5" Loaded="Page_Loaded">
@@ -13,10 +13,28 @@
             <TextBlock Text="🦓Welcome to Cronus!🦓" Margin="30,30,30,30" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
 
             <TextBlock Text="ZPL Editor" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
-            <TextBlock Text="made by github.com/realTobby" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
 
-            <TextBlock Text="Cronus Workspace:" Margin="30,30,30,0" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
-            <TextBlock Text="{Binding WorkspacePath}" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+            <TextBlock Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center">
+                <Hyperlink x:Name="hyperlink_github" NavigateUri="github.com/realTobby" RequestNavigate="hyperlink_github_RequestNavigate">
+                    <TextBlock Text="made by realTobby"/>
+                </Hyperlink>
+            </TextBlock>
+            
+            <TextBlock Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+
+            <DockPanel HorizontalAlignment="Center">
+                <TextBlock Text="Cronus Workspace:" Margin="0,0,20,0"  Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+                <Button HorizontalAlignment="Center" x:Name="btn_changeWorkspace" Click="btn_changeWorkspace_Click">
+                    <mah1:PackIconMaterial Kind="FolderSettings" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </Button>
+            </DockPanel>
+            
+                <TextBlock Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center">
+                <Hyperlink x:Name="text_workspace_link" NavigateUri="{Binding WorkspacePath}" RequestNavigate="text_workspace_link_RequestNavigate">
+                    <TextBlock Text="{Binding WorkspacePath}"></TextBlock>
+                </Hyperlink>
+            </TextBlock>
+
 
 
         </StackPanel>
@@ -28,8 +46,8 @@
             
             <TextBlock Text="Looks like this is the first time you started Cronus." Margin="30,30,30,0" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
             <TextBlock Text="Lets get started by setting up a workspace!" Margin="0,0,0,30" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
-            <TextBlock Text="Select a directory" Margin="0,0,0,0" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
 
+            <TextBlock Text="Select a directory" Margin="0,0,0,0" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
             <DockPanel HorizontalAlignment="Center">
                 <TextBox Text="{Binding WorkspacePath}" Width="400" HorizontalAlignment="Left" Margin="5,5,5,5"/>
                 <Button x:Name="btn_setWorkspace" Click="btn_setWorkspace_Click" Content="..." Width="25" HorizontalAlignment="Center" Margin="5,5,5,5"/>

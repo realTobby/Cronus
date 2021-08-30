@@ -125,8 +125,6 @@ namespace Cronus.ViewModels
         {
             get
             {
-                if (_workspacePath == string.Empty)
-                    return "WORKSPACE NOT SET UP! Please restart Cronus manually.";
                 return _workspacePath;
             }
             set

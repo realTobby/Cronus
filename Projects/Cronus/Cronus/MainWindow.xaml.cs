@@ -23,16 +23,16 @@ namespace Cronus
     /// </summary>
     public partial class MainWindow
     {
-        private ViewModels.ViewModel myViewModel;
+        private ViewModels.ViewModel originalViewModel;
 
         public MainWindow()
         {
-            myViewModel = new ViewModels.ViewModel();
+            originalViewModel = new ViewModels.ViewModel();
 
             InitializeComponent();
             
-            Logic.NavigationHandler.InitNavigation(myViewModel, mainFrame);
-            this.DataContext = myViewModel;
+            Logic.NavigationHandler.InitNavigation(originalViewModel, mainFrame);
+            this.DataContext = originalViewModel;
             Logic.NavigationHandler.ChangePage(0);
         }
 
@@ -40,7 +40,8 @@ namespace Cronus
 
         private void menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Logic.NavigationHandler.ChangePage(myViewModel.SelectedMenuIndex);
+            Logic.NavigationHandler.ChangePage(originalViewModel.SelectedMenuIndex);
+            originalViewModel.AvailableProjects = FileManager.SearchForProjects(originalViewModel.WorkspacePath);
         }
     }
 }
