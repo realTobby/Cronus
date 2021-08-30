@@ -22,9 +22,10 @@ namespace Cronus.ViewModels
         private string _newProjectAuthor = string.Empty;
         private string _newProjectDescription = string.Empty;
 
-        private string _workspacePath;
-        private ProjectModel _loadedProject;
-       
+        private string _workspacePath = string.Empty;
+        private ProjectModel _loadedProject = null;
+
+        private List<ProjectModel> _availableProjects = new List<ProjectModel>();
 
         #endregion
 
@@ -124,6 +125,8 @@ namespace Cronus.ViewModels
         {
             get
             {
+                if (_workspacePath == string.Empty)
+                    return "WORKSPACE NOT SET UP! Please restart Cronus manually.";
                 return _workspacePath;
             }
             set
@@ -143,6 +146,19 @@ namespace Cronus.ViewModels
             {
                 _loadedProject = value;
                 base.OnPropertyChanged(nameof(LoadedProject));
+            }
+        }
+
+        public List<ProjectModel> AvailableProjects
+        {
+            get
+            {
+                return _availableProjects;
+            }
+            set
+            {
+                _availableProjects = value;
+                base.OnPropertyChanged(nameof(AvailableProjects));
             }
         }
 

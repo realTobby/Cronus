@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cronus.Logic;
+using Cronus.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +28,27 @@ namespace Cronus.Pages
             InitializeComponent();
             viewModelRef = vm;
             this.DataContext = viewModelRef;
+
+            SearchForProjects();
+        }
+
+        private void SearchForProjects()
+        {
+            if(viewModelRef.WorkspacePath != null && viewModelRef.WorkspacePath != string.Empty)
+            {
+                string[] projectsInsideWorkspace = System.IO.Directory.GetDirectories(viewModelRef.WorkspacePath);
+
+                foreach (string name in projectsInsideWorkspace)
+                {
+                    ProjectModel nextProject = FileManager.LoadProject(name);
+
+                    viewModelRef.AvailableProjects.Add(nextProject);
+
+                }
+            }
+            
+
+
         }
     }
 }

@@ -39,8 +39,10 @@ namespace Cronus.Logic
 
         public static void ChangePage(int index)
         {
-            viewModelRef.CurrentView = GetPageAtIndex(index);
+            viewModelRef.CurrentView = GetPageAtIndex(index);            
             mainFrame.Navigate(viewModelRef.CurrentView);
+
+
         }
 
         public static Page GetPageAtIndex(int index)
