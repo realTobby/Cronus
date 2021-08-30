@@ -13,8 +13,7 @@
             <TextBlock Text="🦓Welcome to Cronus!🦓" Margin="30,30,30,30" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
 
             <TextBlock Text="ZPL Editor" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
-            <TextBlock Text="made by realTobby" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
-            <TextBlock Text="Start by creating a new Template!" Margin="30,30,30,30" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+            <TextBlock Text="made by github.com/realTobby" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
 
             <TextBlock Text="Cronus Workspace:" Margin="30,30,30,0" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding WorkspacePath}" Foreground="Black" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>

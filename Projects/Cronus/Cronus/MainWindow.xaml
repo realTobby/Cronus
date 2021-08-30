@@ -5,18 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cronus"
         mc:Ignorable="d"
-        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Cronus by github.com/realTobby/Cronus (ZPL Editor)" FontFamily="Calibri" Height="450" Width="800" WindowTitleBrush="{StaticResource stylecolor_foreground}">
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:mah1="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material"
+                 Title="Cronus by github.com/realTobby/Cronus (ZPL Editor)" FontFamily="Calibri" Height="450" Width="800" WindowTitleBrush="{StaticResource stylecolor_foreground}">
 
     <Grid x:Name="grid_main" Background="{StaticResource stylecolor_mainaccent_light}">
         <DockPanel LastChildFill="True">
             <mah:MetroTabControl x:Name="menu" Background="{StaticResource stylecolor_mainaccent_light}" SelectedIndex="{Binding SelectedMenuIndex}" SelectionChanged="menu_SelectionChanged" Style="{DynamicResource MahApps.Styles.TabControl.Animated}" TabStripPlacement="Left">
 
-                <mah:MetroTabItem x:Name="menu_home" Header="Home" />
-                <mah:MetroTabItem x:Name="menu_new" Header="New"/>
-                <mah:MetroTabItem Header="Load"/>
-                <mah:MetroTabItem Header="Edit"/>
-                <mah:MetroTabItem Header="Print"/>
+                <mah:MetroTabItem x:Name="menu_home">
+                    <mah:MetroTabItem.Header>
+                        <DockPanel LastChildFill="True">
+                            <mah1:PackIconMaterial Kind="Home" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                            <TextBlock Text="Home" FontSize="24" Margin="5,5,5,5" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </mah:MetroTabItem.Header>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem x:Name="menu_new">
+                    <mah:MetroTabItem.Header>
+                        <DockPanel LastChildFill="True">
+                            <mah1:PackIconMaterial Kind="NewBox" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                            <TextBlock Text="New" FontSize="24" Margin="5,5,5,5" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </mah:MetroTabItem.Header>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem >
+                    <mah:MetroTabItem.Header>
+                        <DockPanel LastChildFill="True">
+                            <mah1:PackIconMaterial Kind="DotsHorizontalCircle" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                            <TextBlock Text="Load" FontSize="24" Margin="5,5,5,5" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </mah:MetroTabItem.Header>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem>
+                    <mah:MetroTabItem.Header>
+                        <DockPanel LastChildFill="True">
+                            <mah1:PackIconMaterial Kind="Pencil" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                            <TextBlock Text="Edit" FontSize="24" Margin="5,5,5,5" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </mah:MetroTabItem.Header>
+                </mah:MetroTabItem>
+                <mah:MetroTabItem>
+                    <mah:MetroTabItem.Header>
+                        <DockPanel LastChildFill="True">
+                            <mah1:PackIconMaterial Kind="Printer" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                            <TextBlock Text="Print" FontSize="24" Margin="5,5,5,5" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </mah:MetroTabItem.Header>
+                </mah:MetroTabItem>
             </mah:MetroTabControl>
             <Frame x:Name="mainFrame" Content="{Binding CurrentView}" NavigationUIVisibility="Hidden"/>
         </DockPanel>
