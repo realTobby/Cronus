@@ -40,7 +40,7 @@ namespace Cronus.Pages
             pm.Description = vm.NewProjectDescription;
             pm.CreateDate = DateTime.Now;
             pm.ChangeDate = DateTime.Now;
-
+            pm.RawZPLCode = "^XA^XZ";
 
 
             string fullPath = System.IO.Path.Combine(FileManager.GetWorkspacePath(), pm.Name);

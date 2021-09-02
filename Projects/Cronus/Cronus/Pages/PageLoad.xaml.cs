@@ -31,6 +31,16 @@ namespace Cronus.Pages
             viewModelRef.AvailableProjects =  FileManager.SearchForProjects(viewModelRef.WorkspacePath);
         }
 
-        
+        private void btn_load_project_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_delete_selected_project_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("clicked delete on: " + lstBox_workspace_projects.SelectedIndex);
+        }
+
+
     }
 }

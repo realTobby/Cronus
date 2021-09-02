@@ -27,6 +27,8 @@ namespace Cronus.ViewModels
 
         private List<ProjectModel> _availableProjects = new List<ProjectModel>();
 
+        private ProjectModel _selectedProjet = null;
+
         #endregion
 
         #region Public Properties
@@ -157,6 +159,30 @@ namespace Cronus.ViewModels
             {
                 _availableProjects = value;
                 base.OnPropertyChanged(nameof(AvailableProjects));
+            }
+        }
+
+        public bool IsProjectToLoadSelected
+        {
+            get
+            {
+                if (_selectedProjet == null)
+                    return false;
+                return true;
+            }
+        }
+
+        public ProjectModel SelectedProject
+        {
+            get
+            {
+                return _selectedProjet;
+            }
+            set
+            {
+                _selectedProjet = value;
+                base.OnPropertyChanged(nameof(SelectedProject));
+                base.OnPropertyChanged(nameof(IsProjectToLoadSelected));
             }
         }
 

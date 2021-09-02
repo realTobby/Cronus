@@ -20,26 +20,30 @@ namespace Cronus.Logic
         {
             string fullPath = System.IO.Path.Combine(GetWorkspacePath(), pm.Name);
 
-            // create base project folder
-            System.IO.Directory.CreateDirectory(fullPath);
+            if(!System.IO.Directory.Exists(fullPath))
+            {
+                // create base project folder
+                System.IO.Directory.CreateDirectory(fullPath);
 
-            // create ini file
+                // create ini file
 
-            // 1. ProjectName
-            // 2. ProjectAuthor
-            // 3. ProjectCreateDate
-            // 4. ProjectChangeDate
-            // 5. ProjectDescription
-            // 6. RawZPLCode
+                // 1. ProjectName
+                // 2. ProjectAuthor
+                // 3. ProjectCreateDate
+                // 4. ProjectChangeDate
+                // 5. ProjectDescription
+                // 6. RawZPLCode
 
-            string iniContent = "ProjectName=" + pm.Name + System.Environment.NewLine +
-                                "ProjectAuthor=" + pm.Author + System.Environment.NewLine +
-                                "ProjectCreateDate=" + pm.CreateDate + System.Environment.NewLine + 
-                                "ProjectChangeDate=" + pm.ChangeDate + System.Environment.NewLine + 
-                                "ProjectDescription=" + pm.Description + System.Environment.NewLine + 
-                                "RawZPLCode=" + pm.RawZPLCode;
+                string iniContent = "ProjectName=" + pm.Name + System.Environment.NewLine +
+                                    "ProjectAuthor=" + pm.Author + System.Environment.NewLine +
+                                    "ProjectCreateDate=" + pm.CreateDate + System.Environment.NewLine +
+                                    "ProjectChangeDate=" + pm.ChangeDate + System.Environment.NewLine +
+                                    "ProjectDescription=" + pm.Description + System.Environment.NewLine +
+                                    "RawZPLCode=" + pm.RawZPLCode;
 
-            System.IO.File.WriteAllText(System.IO.Path.Combine(fullPath, _projectIniName), iniContent);
+                System.IO.File.WriteAllText(System.IO.Path.Combine(fullPath, _projectIniName), iniContent);
+            }
+            
 
         }
 
