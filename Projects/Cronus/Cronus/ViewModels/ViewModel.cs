@@ -1,4 +1,5 @@
-﻿using Cronus.Models;
+﻿using Cronus.Logic;
+using Cronus.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,11 @@ namespace Cronus.ViewModels
         private string _newProjectDescription = string.Empty;
 
         private string _workspacePath = string.Empty;
-        private ProjectModel _loadedProject = null;
 
         private List<ProjectModel> _availableProjects = new List<ProjectModel>();
-
         private ProjectModel _selectedProjet = null;
 
+        private string _zplCode = string.Empty;
         #endregion
 
         #region Public Properties
@@ -136,19 +136,6 @@ namespace Cronus.ViewModels
             }
         }
 
-        public ProjectModel LoadedProject
-        {
-            get
-            {
-                return _loadedProject;
-            }
-            set
-            {
-                _loadedProject = value;
-                base.OnPropertyChanged(nameof(LoadedProject));
-            }
-        }
-
         public List<ProjectModel> AvailableProjects
         {
             get
@@ -183,6 +170,21 @@ namespace Cronus.ViewModels
                 _selectedProjet = value;
                 base.OnPropertyChanged(nameof(SelectedProject));
                 base.OnPropertyChanged(nameof(IsProjectToLoadSelected));
+                if(_selectedProjet != null)
+                    ZPLCode = FileManager.LoadZPL(_selectedProjet.Name);
+            }
+        }
+
+        public string ZPLCode
+        {
+            get
+            {
+                return _zplCode;
+            }
+            set
+            {
+                _zplCode = value;
+                base.OnPropertyChanged(nameof(ZPLCode));
             }
         }
 

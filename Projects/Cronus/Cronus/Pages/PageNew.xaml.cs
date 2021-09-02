@@ -40,13 +40,13 @@ namespace Cronus.Pages
             pm.Description = vm.NewProjectDescription;
             pm.CreateDate = DateTime.Now;
             pm.ChangeDate = DateTime.Now;
-            pm.RawZPLCode = "^XA^XZ";
-
 
             string fullPath = System.IO.Path.Combine(FileManager.GetWorkspacePath(), pm.Name);
 
             FileManager.CreateNewProject(pm);
-            vm.LoadedProject = FileManager.LoadProject(fullPath);
+
+            vm.ZPLCode = FileManager.LoadZPL(fullPath);
+
             CleanPage();
 
             vm.SelectedMenuIndex = 3;

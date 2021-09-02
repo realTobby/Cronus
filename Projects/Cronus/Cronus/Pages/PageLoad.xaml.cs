@@ -34,6 +34,7 @@ namespace Cronus.Pages
         private void btn_load_project_Click(object sender, RoutedEventArgs e)
         {
 
+            viewModelRef.SelectedMenuIndex = 3;
         }
 
         private void btn_delete_selected_project_Click(object sender, RoutedEventArgs e)
