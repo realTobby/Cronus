@@ -13,7 +13,5 @@ namespace Cronus.Models
         public string Description { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime ChangeDate { get; set; }
-        public string RawZPLCode { get; set; }
-
     }
 }
