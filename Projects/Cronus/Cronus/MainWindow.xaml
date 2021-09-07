@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cronus"
         mc:Ignorable="d"
-        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" xmlns:converters="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" xmlns:converters="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core" xmlns:dragableelements="clr-namespace:Cronus.DragableElements"
                       Title="Cronus by github.com/realTobby/Cronus (ZPL Editor)" FontFamily="Calibri" Height="450" Width="800" WindowTitleBrush="{StaticResource stylecolor_foreground}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,7 +15,7 @@
 
         <Button Grid.Column="0" x:Name="btn_add_element" Click="btn_add_element_Click" Content="Add Element"/>
 
-        <Canvas Background='Beige' Name='canvas' Grid.Column="1">
+        <Canvas Background='Beige' Name='canvas' Grid.Column="1" >
         </Canvas>
 
     </Grid>

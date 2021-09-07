@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cronus.DragableElements;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -29,37 +30,50 @@ namespace Cronus
 
         }
 
-        void Rectangle_MouseMove(object sender, MouseEventArgs e)
+        void Element_MouseMove(object sender, MouseEventArgs mea)
         {
-            if (e.Source is Shape shape)
+            Point p = mea.GetPosition(canvas);
+            if (mea.Source is UserControl uc)
             {
-                if (e.LeftButton == MouseButtonState.Pressed)
+                // check where cursor is
+                Console.WriteLine("Element:");
+                Console.WriteLine("X: " + Canvas.GetLeft(uc).ToString() + " / Y: " + Canvas.GetTop(uc).ToString());
+
+                Console.WriteLine("Maus: ");
+                Console.WriteLine("X: " + p.X + " / Y: " + p.Y);
+
+                // check for corner piece
+                Point uc_ul = new Point(Canvas.GetLeft(uc), Canvas.GetTop(uc));
+                Point uc_ur = new Point(Canvas.GetLeft(uc) + uc.ActualWidth, Canvas.GetTop(uc));
+                Point uc_ll = new Point(Canvas.GetLeft(uc), Canvas.GetTop(uc) + uc.ActualHeight);
+                Point uc_lr = new Point(Canvas.GetLeft(uc) + uc.ActualWidth, Canvas.GetTop(uc) + uc.ActualHeight);
+
+                double leanWay = 15;
+
+
+                if (mea.LeftButton == MouseButtonState.Pressed)
                 {
-                    Point p = e.GetPosition(canvas);
-                    Canvas.SetLeft(shape, p.X - shape.ActualWidth / 2);
-                    Canvas.SetTop(shape, p.Y - shape.ActualHeight / 2);
-                    Canvas.SetZIndex(shape, 10);
-                    shape.CaptureMouse();
+                    Canvas.SetLeft(uc, p.X - uc.ActualWidth / 2);
+                    Canvas.SetTop(uc, p.Y - uc.ActualHeight / 2);
+                    Canvas.SetZIndex(uc, 10);
+                    uc.CaptureMouse();
                 }
                 else
                 {
-                    shape.ReleaseMouseCapture();
-                    Canvas.SetZIndex(shape, -10);
+                    uc.ReleaseMouseCapture();
+                    Canvas.SetZIndex(uc, -10);
                 }
             }
         }
 
         private void btn_add_element_Click(object sender, RoutedEventArgs e)
         {
-
-            Rectangle newRectangle = new Rectangle();
-            //Width = '50' Height = '50' Fill = 'LightPink' Canvas.Left = '350' Canvas.Top = '175'
-            newRectangle.Width = 50;
-            newRectangle.Height = 50;
-            newRectangle.Fill = new SolidColorBrush(Color.FromRgb((byte)rnd.Next(0,255), (byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255)));
-            Canvas.SetLeft(newRectangle, 350);
-            Canvas.SetTop(newRectangle, 175);
-            newRectangle.MouseMove += Rectangle_MouseMove;
+            ZPLElementRectangleBox newRectangle = new ZPLElementRectangleBox();
+            //Width = '50' Height = '50' Fill = 'LightPink' Canvas.Left = '0' Canvas.Top = '175'
+            newRectangle.rectangle.Fill = new SolidColorBrush(Color.FromRgb((byte)rnd.Next(0,255), (byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255)));
+            Canvas.SetLeft(newRectangle, 0);
+            Canvas.SetTop(newRectangle, 0);
+            newRectangle.MouseMove += Element_MouseMove;
             canvas.Children.Add(newRectangle);
         }
     }
