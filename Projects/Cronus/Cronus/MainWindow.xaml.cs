@@ -1,22 +1,4 @@
-﻿using Cronus.Logic;
-using Cronus.Pages;
-using MahApps.Metro.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace Cronus
+﻿namespace Cronus
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
@@ -30,18 +12,13 @@ namespace Cronus
             originalViewModel = new ViewModels.ViewModel();
 
             InitializeComponent();
-            
-            Logic.NavigationHandler.InitNavigation(originalViewModel, mainFrame);
-            this.DataContext = originalViewModel;
-            Logic.NavigationHandler.ChangePage(0);
+#if DEBUG
+            originalViewModel.VersionTitle = "Cronus v0.0 [DEV]";
+#elif DEBUG
+            originalViewModel.VersionTitle = "Cronus v0.0 [RELEASE]";      
+#endif
+
         }
 
-        
-
-        private void menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Logic.NavigationHandler.ChangePage(originalViewModel.SelectedMenuIndex);
-            originalViewModel.AvailableProjects = FileManager.SearchForProjects(originalViewModel.WorkspacePath);
-        }
     }
 }

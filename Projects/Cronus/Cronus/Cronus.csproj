@@ -170,9 +170,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Logic\FileManager.cs" />
-    <Compile Include="Logic\NavigationHandler.cs" />
-    <Compile Include="Models\ProjectModel.cs" />
     <Compile Include="ViewModels\BaseNotifier.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -187,26 +184,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\PageEdit.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\PageHome.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\PageLoad.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\PageNew.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\PagePrint.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Styles\BaseColors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -214,21 +191,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\PageEdit.xaml.cs">
-      <DependentUpon>PageEdit.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\PageHome.xaml.cs">
-      <DependentUpon>PageHome.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\PageLoad.xaml.cs">
-      <DependentUpon>PageLoad.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\PageNew.xaml.cs">
-      <DependentUpon>PageNew.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\PagePrint.xaml.cs">
-      <DependentUpon>PagePrint.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -257,6 +219,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ReadMeCronusConcept.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logic\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cronus.FileHandler\Cronus.FileHandler\Cronus.FileHandler.csproj">
+      <Project>{dcedf483-45f7-4ff6-9b30-fff0060b36d9}</Project>
+      <Name>Cronus.FileHandler</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cronus.Models
+namespace Cronus.FileHandler
 {
     public class ProjectModel
     {
