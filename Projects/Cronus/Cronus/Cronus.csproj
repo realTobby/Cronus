@@ -223,11 +223,5 @@
   <ItemGroup>
     <Folder Include="Logic\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Cronus.FileHandler\Cronus.FileHandler\Cronus.FileHandler.csproj">
-      <Project>{dcedf483-45f7-4ff6-9b30-fff0060b36d9}</Project>
-      <Name>Cronus.FileHandler</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
