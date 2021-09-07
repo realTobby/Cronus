@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cronus", "Cronus\Cronus.csproj", "{328B04C4-8425-41C0-BA8F-9C92F3F2EE08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cronus.FileHandler", "..\Cronus.FileHandler\Cronus.FileHandler\Cronus.FileHandler.csproj", "{DCEDF483-45F7-4FF6-9B30-FFF0060B36D9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{328B04C4-8425-41C0-BA8F-9C92F3F2EE08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{328B04C4-8425-41C0-BA8F-9C92F3F2EE08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{328B04C4-8425-41C0-BA8F-9C92F3F2EE08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCEDF483-45F7-4FF6-9B30-FFF0060B36D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCEDF483-45F7-4FF6-9B30-FFF0060B36D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCEDF483-45F7-4FF6-9B30-FFF0060B36D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCEDF483-45F7-4FF6-9B30-FFF0060B36D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
