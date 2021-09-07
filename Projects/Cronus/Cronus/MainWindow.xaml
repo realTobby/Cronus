@@ -9,14 +9,23 @@
                       Title="Cronus by github.com/realTobby/Cronus (ZPL Editor)" FontFamily="Calibri" Height="450" Width="800" WindowTitleBrush="{StaticResource stylecolor_foreground}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*" />
-            <ColumnDefinition Width="90*" />
+            <ColumnDefinition Width="15*" />
+            <ColumnDefinition Width="70*" />
+            <ColumnDefinition Width="15*" />
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0" x:Name="btn_add_element" Click="btn_add_element_Click" Content="Add Element"/>
+        <StackPanel Grid.Column="0">
+            <Button x:Name="btn_add_rectangle" Click="btn_add_rectangle_Click" Content="Rectangle"/>
+            <Button x:Name="btn_add_text" Click="btn_add_text_Click" Content="Text"/>
+        </StackPanel>
+        
 
         <Canvas Background='Beige' Name='canvas' Grid.Column="1" >
         </Canvas>
+
+        <StackPanel Grid.Column="2">
+            <TextBlock Text="Properties of Element"/>
+        </StackPanel>
 
     </Grid>
 </Controls:MetroWindow>

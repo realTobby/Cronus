@@ -3,12 +3,12 @@
 namespace Cronus.DragableElements
 {
     /// <summary>
-    /// Interaktionslogik für ZPLElementRectangleBox.xaml
+    /// Interaktionslogik für ZPLElementText.xaml
     /// </summary>
-    public partial class ZPLElementRectangleBox : UserControl
+    public partial class ZPLElementText : UserControl
     {
 
-        public ZPLElementRectangleBox()
+        public ZPLElementText()
         {
             InitializeComponent();
         }
